@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Semester - MyScore</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/dashboard.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Header -->
+    <div class="dashboard-header">
+      <div>
+        <h1 class="dashboard-title">Select Your Semester</h1>
+        <p class="dashboard-subtitle">Choose a semester to calculate your percentage</p>
+      </div>
+      <div class="user-info">
+        <span class="user-email" id="userEmail">Loading...</span>
+        <button class="btn-logout" id="logoutBtn">Logout</button>
+      </div>
+    </div>
+
+    <!-- Semester Cards Grid -->
+    <div class="semester-grid">
+      <!-- Semester 1 -->
+      <div class="semester-card disabled">
+        <div class="semester-number">1</div>
+        <div class="semester-title">Semester 1</div>
+        <span class="semester-status status-coming-soon">Coming Soon</span>
+      </div>
+
+      <!-- Semester 2 -->
+      <div class="semester-card disabled">
+        <div class="semester-number">2</div>
+        <div class="semester-title">Semester 2</div>
+        <span class="semester-status status-coming-soon">Coming Soon</span>
+      </div>
+
+      <!-- Semester 3 -->
+      <div class="semester-card disabled">
+        <div class="semester-number">3</div>
+        <div class="semester-title">Semester 3</div>
+        <span class="semester-status status-coming-soon">Coming Soon</span>
+      </div>
+
+      <!-- Semester 4 -->
+      <div class="semester-card disabled">
+        <div class="semester-number">4</div>
+        <div class="semester-title">Semester 4</div>
+        <span class="semester-status status-coming-soon">Coming Soon</span>
+      </div>
+
+      <!-- Semester 5 -->
+      <div class="semester-card disabled">
+        <div class="semester-number">5</div>
+        <div class="semester-title">Semester 5</div>
+        <span class="semester-status status-coming-soon">Coming Soon</span>
+      </div>
+
+      <!-- Semester 6 - ACTIVE -->
+      <div class="semester-card active" id="semester6Card">
+        <div class="semester-number">6</div>
+        <div class="semester-title">Semester 6</div>
+        <span class="semester-status status-active">Available</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+  <!-- Firebase Config -->
+  <script src="./assets/js/firebase-config.js"></script>
+
+  <!-- Dashboard Script -->
+  <script src="./assets/js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - MyScore</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/admin.css">
+</head>
+
+<body>
+  <div class="admin-container">
+    <!-- Header -->
+    <div class="admin-header">
+      <div class="brand-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M9 2v2H7v2H5v2H3v10h2v2h2v2h10v-2h2v-2h2V8h-2V6h-2V4h-2V2H9zm0 2h4v2h2v2h2v2h2v6h-2v2h-2v2H9v-2H7v-2H5v-6h2V8h2V6h2V4z" />
+        </svg>
+        <span>MyScore Admin</span>
+      </div>
+      <div class="admin-controls">
+        <button class="btn btn-secondary btn-sm" id="refreshBtn">Refresh Data</button>
+        <button class="btn btn-danger btn-sm" id="logoutBtn">Logout</button>
+      </div>
+    </div>
+
+    <div class="dashboard-container">
+      <div class="section-header">
+        <div>
+          <h1 class="section-title">Dashboard Overview</h1>
+          <p>Welcome back, Administrator.</p>
+        </div>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total Users</div>
+          <div class="stat-value" id="totalUsers">0</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">New This Month</div>
+          <div class="stat-value" id="newThisMonth">0</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">New This Week</div>
+          <div class="stat-value" id="newThisWeek">0</div>
+        </div>
+      </div>
+
+      <!-- Charts Section -->
+      <div class="charts-grid">
+        <div class="chart-card">
+          <h3 class="chart-title">User Registration Growth</h3>
+          <div class="chart-container" style="position: relative; height: 300px; width:100%">
+            <canvas id="userGrowthChart"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <h3 class="chart-title">Semester Distribution</h3>
+          <div class="chart-container" style="position: relative; height: 300px; width:100%">
+            <canvas id="semesterUsageChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Users Table -->
+      <div class="table-card users-section">
+        <div class="section-header"
+          style="padding: 1.5rem; margin-bottom: 0; border-bottom: 1px solid var(--border-color);">
+          <h3 class="chart-title" style="margin: 0;">Recent Users</h3>
+        </div>
+
+        <div id="loadingState">
+          <p>Loading users...</p>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table" id="usersTable" style="display: none;">
+            <thead>
+              <tr>
+                <th>Sr No.</th>
+                <th>Email</th>
+                <th>Signup Date</th>
+                <th>Last Login</th>
+              </tr>
+            </thead>
+            <tbody id="usersTableBody">
+              <!-- Users will be populated here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+  <!-- Firebase Config -->
+  <script src="./assets/js/firebase-config.js"></script>
+
+  <!-- Admin Dashboard Script -->
+  <script src="./assets/js/admin.js"></script>
+</body>
+
+</html>

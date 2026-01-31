@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semester 6 Calculator - MyScore</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/calculator.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+</head>
+
+<body>
+  <div class="calculator-container">
+    <!-- Header -->
+    <div class="calculator-header">
+      <div class="header-left">
+        <div class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              d="M9 2v2H7v2H5v2H3v10h2v2h2v2h10v-2h2v-2h2V8h-2V6h-2V4h-2V2H9zm0 2h4v2h2v2h2v2h2v6h-2v2h-2v2H9v-2H7v-2H5v-6h2V8h2V6h2V4z" />
+          </svg>
+        </div>
+        <div>
+          <h1 class="header-title">MyScore</h1>
+          <p class="header-subtitle">MSBTE Diploma Percentage Calculator</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="btn-back" id="backBtn">← Back</button>
+        <button class="btn-logout" id="logoutBtn">Logout</button>
+      </div>
+    </div>
+
+    <!-- Calculator Card -->
+    <div class="calculator-card">
+      <div class="table-wrapper">
+        <table class="calculator-table">
+          <thead>
+            <tr>
+              <th rowspan="2">Sr</th>
+              <th rowspan="2">Course Title</th>
+              <th rowspan="2">Abbr</th>
+              <th rowspan="2">Code</th>
+              <th colspan="2">Theory (Final)</th>
+              <th colspan="2">Theory (UT)</th>
+              <th colspan="2">Practical (FA-PR)</th>
+              <th colspan="2">Practical (SA-PR)</th>
+              <th colspan="2">SLA</th>
+              <th rowspan="2">Subject<br>Total</th>
+            </tr>
+            <tr>
+              <th>Max</th>
+              <th>Obt</th>
+              <th>Max</th>
+              <th>Obt</th>
+              <th>Max</th>
+              <th>Obt</th>
+              <th>Max</th>
+              <th>Obt</th>
+              <th>Max</th>
+              <th>Obt</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Row 1: Management -->
+            <tr data-subject="management">
+              <td>1</td>
+              <td class="course-title">MANAGEMENT</td>
+              <td class="course-abbr">MAN</td>
+              <td class="course-code">315301</td>
+              <td class="max-marks">70</td>
+              <td><input type="number" class="marks-input" data-max="70" min="0" max="70" placeholder="0"></td>
+              <td class="max-marks">30</td>
+              <td><input type="number" class="marks-input" data-max="30" min="0" max="30" placeholder="0"></td>
+              <td class="empty-cell">—</td>
+              <td class="empty-cell">—</td>
+              <td class="empty-cell">—</td>
+              <td class="empty-cell">—</td>
+              <td class="max-marks">25</td>
+              <td><input type="number" class="marks-input" data-max="25" min="0" max="25" placeholder="0"></td>
+              <td class="subject-total">0</td>
+            </tr>
+
+            <!-- Row 2: Emerging Trends -->
+            <tr data-subject="eti">
+              <td>2</td>
+              <td class="course-title">EMERGING TRENDS IN COMPUTER ENGINEERING AND IT</td>
+              <td class="course-abbr">ETI</td>
+              <td class="course-code">316313</td>
+              <td class="max-marks">70</td>
+              <td><input type="number" class="marks-input" data-max="70" min="0" max="70" placeholder="0"></td>
+              <td class="max-marks">30</td>
+              <td><input type="number" class="marks-input" data-max="30" min="0" max="30" placeholder="0"></td>
+              <td class="empty-cell">—</td>
+              <td class="empty-cell">—</td>
+              <td class="empty-cell">—</td>
+              <td class="empty-cell">—</td>
+              <td class="max-marks">25</td>
+              <td><input type="number" class="marks-input" data-max="25" min="0" max="25" placeholder="0"></td>
+              <td class="subject-total">0</td>
+            </tr>
+
+            <!-- Row 3: Software Testing -->
+            <tr data-subject="sft">
+              <td>3</td>
+              <td class="course-title">SOFTWARE TESTING</td>
+              <td class="course-abbr">SFT</td>
+              <td class="course-code">316314</td>
+              <td class="max-marks">70</td>
+              <td><input type="number" class="marks-input" data-max="70" min="0" max="70" placeholder="0"></td>
+              <td class="max-marks">30</td>
+              <td><input type="number" class="marks-input" data-max="30" min="0" max="30" placeholder="0"></td>
+              <td class="max-marks">25</td>
+              <td><input type="number" class="marks-input" data-max="25" min="0" max="25" placeholder="0"></td>
+              <td class="empty-cell">—</td>
+              <td class="empty-cell">—</td>
+              <td class="max-marks">25</td>
+              <td><input type="number" class="marks-input" data-max="25" min="0" max="25" placeholder="0"></td>
+              <td class="subject-total">0</td>
+            </tr>
+
+            <!-- Row 4: Client Side Scripting -->
+            <tr data-subject="css">
+              <td>4</td>
+              <td class="course-title">CLIENT SIDE SCRIPTING</td>
+              <td class="course-abbr">CSS</td>
+              <td class="course-code">316805</td>
+              <td class="empty-cell">—</td>
+              <td class="empty-cell">—</td>
+              <td class="empty-cell">—</td>
+              <td class="empty-cell">—</td>
+              <td class="max-marks">25</td>
+              <td><input type="number" class="marks-input" data-max="25" min="0" max="25" placeholder="0"></td>
+              <td class="max-marks">25</td>
+              <td><input type="number" class="marks-input" data-max="25" min="0" max="25" placeholder="0"></td>
+              <td class="empty-cell">—</td>
+              <td class="empty-cell">—</td>
+              <td class="subject-total">0</td>
+            </tr>
+
+            <!-- Row 5: Mobile Application Development -->
+            <tr data-subject="mad">
+              <td>5</td>
+              <td class="course-title">MOBILE APPLICATION DEVELOPMENT</td>
+              <td class="course-abbr">MAD</td>
+              <td class="course-code">316806</td>
+              <td class="empty-cell">—</td>
+              <td class="empty-cell">—</td>
+              <td class="empty-cell">—</td>
+              <td class="empty-cell">—</td>
+              <td class="max-marks">25</td>
+              <td><input type="number" class="marks-input" data-max="25" min="0" max="25" placeholder="0"></td>
+              <td class="max-marks">25</td>
+              <td><input type="number" class="marks-input" data-max="25" min="0" max="25" placeholder="0"></td>
+              <td class="max-marks">25</td>
+              <td><input type="number" class="marks-input" data-max="25" min="0" max="25" placeholder="0"></td>
+              <td class="subject-total">0</td>
+            </tr>
+
+            <!-- Row 6: Capstone Project -->
+            <tr data-subject="cpe">
+              <td>6</td>
+              <td class="course-title">CAPSTONE PROJECT</td>
+              <td class="course-abbr">CPE</td>
+              <td class="course-code">316804</td>
+              <td class="empty-cell">—</td>
+              <td class="empty-cell">—</td>
+              <td class="empty-cell">—</td>
+              <td class="empty-cell">—</td>
+              <td class="max-marks">50</td>
+              <td><input type="number" class="marks-input" data-max="50" min="0" max="50" placeholder="0"></td>
+              <td class="max-marks">50</td>
+              <td><input type="number" class="marks-input" data-max="50" min="0" max="50" placeholder="0"></td>
+              <td class="max-marks">50</td>
+              <td><input type="number" class="marks-input" data-max="50" min="0" max="50" placeholder="0"></td>
+              <td class="subject-total">0</td>
+            </tr>
+
+            <!-- Row 7: Elective -->
+            <tr data-subject="elective" class="elective-row">
+              <td>7</td>
+              <td class="course-title">
+                ELECTIVE SUBJECT (Any One: DFH, MAL, NIS)
+                <span class="elective-label">ELECTIVE</span>
+              </td>
+              <td class="course-abbr">ELE</td>
+              <td class="course-code">------</td>
+              <td class="max-marks">70</td>
+              <td><input type="number" class="marks-input" data-max="70" min="0" max="70" placeholder="0"></td>
+              <td class="max-marks">30</td>
+              <td><input type="number" class="marks-input" data-max="30" min="0" max="30" placeholder="0"></td>
+              <td class="max-marks">25</td>
+              <td><input type="number" class="marks-input" data-max="25" min="0" max="25" placeholder="0"></td>
+              <td class="max-marks">25</td>
+              <td><input type="number" class="marks-input" data-max="25" min="0" max="25" placeholder="0"></td>
+              <td class="max-marks">25</td>
+              <td><input type="number" class="marks-input" data-max="25" min="0" max="25" placeholder="0"></td>
+              <td class="subject-total">0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Results Section -->
+      <div class="results-section">
+        <div class="result-box">
+          <div class="result-label">Total Obtained</div>
+          <div class="result-value" id="totalObtained">0</div>
+          <div class="result-subtext">/ 850</div>
+        </div>
+
+        <div class="result-box percentage-box">
+          <div class="result-label">Percentage</div>
+          <div class="result-value" id="percentage">0.00%</div>
+          <div class="result-subtext">Your Score</div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button class="btn-clear" id="clearBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="3 6 5 6 21 6"></polyline>
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+          </svg>
+          Clear
+        </button>
+        <button class="btn-print" id="printBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          Print Result
+        </button>
+        <button class="btn btn-success" id="pdfBtn" style="display: flex; align-items: center; gap: 8px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          Export PDF
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+  <!-- Firebase Config -->
+  <script src="./assets/js/firebase-config.js"></script>
+
+  <!-- Calculator Script -->
+  <script src="./assets/js/calculator.js"></script>
+  <!-- PDF Export Script -->
+  <script src="./assets/js/pdf-export.js"></script>
+</body>
+
+</html>

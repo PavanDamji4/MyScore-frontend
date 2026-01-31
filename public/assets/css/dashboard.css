@@ -1,0 +1,158 @@
+/* Professional Dashboard Styles */
+
+body {
+  background-color: #f8fafc;
+}
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Header */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  background-color: white;
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.dashboard-title {
+  font-size: 1.75rem;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-subtitle {
+  color: #64748b;
+  font-size: 1rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.user-email {
+  color: #475569;
+  font-weight: 500;
+}
+
+.btn-logout {
+  background-color: white;
+  color: #ef4444;
+  border: 1px solid #fee2e2;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn-logout:hover {
+  background-color: #fef2f2;
+}
+
+/* Semester Grid */
+.semester-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.semester-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Active Card Style */
+.semester-card.active {
+  border-color: #3b82f6;
+  box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.1);
+}
+
+.semester-card.active:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.2);
+}
+
+.semester-number {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #e2e8f0;
+  /* Very light grey, not black */
+  line-height: 1;
+  margin-bottom: 1rem;
+  transition: color 0.2s;
+}
+
+.semester-card.active .semester-number {
+  color: #3b82f6;
+  /* Blue for active */
+}
+
+.semester-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 1.5rem;
+}
+
+/* Status Badges */
+.semester-status {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.status-active {
+  background-color: #eff6ff;
+  color: #2563eb;
+}
+
+.status-coming-soon {
+  background-color: #f1f5f9;
+  color: #94a3b8;
+}
+
+/* Disabled State */
+.semester-card.disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background-color: #f8fafc;
+}
+
+.semester-card.disabled .semester-number {
+  color: #cbd5e1;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+  .dashboard-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .user-info {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
