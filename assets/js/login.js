@@ -46,16 +46,19 @@ loginForm.addEventListener('submit', async (e) => {
     const data = await response.json();
 
     if (data.success) {
-      // Sign in with custom token
-      await auth.signInWithCustomToken(data.token);
-      
+      // Sign in with custom token to establish Firebase session
+      const userCredential = await auth.signInWithCustomToken(data.token);
+
+      // Get the real ID token (required for backend API calls)
+      const idToken = await userCredential.user.getIdToken();
+
       // Store user data in localStorage
       localStorage.setItem('userId', data.userId);
       localStorage.setItem('userEmail', data.email);
-      localStorage.setItem('token', data.token);
-      
+      localStorage.setItem('token', idToken); // Store ID token, NOT custom token
+
       showAlert('Login successful! Redirecting...', 'success');
-      
+
       // Redirect to dashboard
       setTimeout(() => {
         window.location.href = 'dashboard.html';
