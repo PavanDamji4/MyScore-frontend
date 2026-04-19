@@ -15,8 +15,8 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const db = firebase.firestore();
 
-// API Base URL - UPDATED WITH YOUR RAILWAY URL
-const API_BASE_URL = 'https://myscore-backend-production.up.railway.app/api';
+// API Base URL - Render Backend
+const API_BASE_URL = 'https://myscore-backend.onrender.com/api';
 
 console.log('✅ Firebase initialized');
 console.log('✅ API Base URL:', API_BASE_URL);
